@@ -51,20 +51,33 @@ if hasattr(base_est, "intercept_"):
     intercept_df.to_csv("model_params_dump/linear_svc_intercept.csv", index=False)
 
 ### ---- Calibration parameters (from calibrated_classifiers_) ----
-for i, calib_clf in enumerate(classifier.calibrated_classifiers_):
-    if hasattr(calib_clf, "calibrator") and calib_clf.calibrator is not None:
-        calib = calib_clf.calibrator
+if hasattr(classifier, "calibrated_classifiers_"):
+    for i, calib_clf in enumerate(classifier.calibrated_classifiers_):
+        calib = getattr(calib_clf, "calibrator", None)
+        if calib is None:
+            continue
+
+        # Save calibrator hyperparameters
         calib_params = calib.get_params()
         pd.DataFrame(list(calib_params.items()), columns=["parameter", "value"]) \
             .to_csv(f"model_params_dump/calibrator_{i}_config.csv", index=False)
 
-        # If sigmoid (LogisticRegression), save coefficients
+        # If sigmoid scaling (LogisticRegression)
         if hasattr(calib, "coef_"):
             coef_df = pd.DataFrame(calib.coef_)
             coef_df.to_csv(f"model_params_dump/calibrator_{i}_coef.csv", index=False)
         if hasattr(calib, "intercept_"):
             intercept_df = pd.DataFrame(calib.intercept_)
             intercept_df.to_csv(f"model_params_dump/calibrator_{i}_intercept.csv", index=False)
+
+        # If isotonic regression scaling
+        if hasattr(calib, "X_thresholds_") and hasattr(calib, "y_thresholds_"):
+            iso_df = pd.DataFrame({
+                "X_thresholds": calib.X_thresholds_,
+                "y_thresholds": calib.y_thresholds_
+            })
+            iso_df.to_csv(f"model_params_dump/calibrator_{i}_isotonic.csv", index=False)
+
 
 print("✅ All pipeline parameters dumped into 'model_params_dump/' folder.")
 ```
