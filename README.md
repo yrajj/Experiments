@@ -151,3 +151,251 @@ def run_inference(test_df, text_column='processed_text'):
 # predictions = run_inference(test_df)
 # print(predictions)
 ```
+```
+getLegalEntities
+
+getLegalEntities
+
+Retums the list of legal entities for given string.
+
+legalEntity,
+
+The legal entity value to check. This parameter is mandatory.
+
+getByEntity
+
+getByEntity
+
+Returns financial metrics for a legal entity, product, or relationship.
+
+entity
+
+The column that needs to be filtered. This parameter is mandatory.
+
+Allowed Values: 'legal_entity', 'product_desc', 'relationship_id.
+
+Info: relationship_id is used to filter by SUP.
+
+entityValue
+
+The value of the entity filter. This parameter is mandatory.
+
+selectDimensions
+
+Create
+
+The selection dimensions for the query. This parameter is optional
+
+String Format: column name delimited by pipe
+
+Allowed values: "legal entity, booking officer, product desc, 'sub lob, lob', 'n mis date skey, legal, entity(product desc
+
+legal_entity/product descub Job
+
+periodAggregationType
+
+The aggregation period for the data. This parameter is optional
+
+Allowed Values: LTM, YTD, QTD, MTD', 'PYLTM, PYYTD PYOTO
+
+Default Value: LIM.
+
+orderBy
+
+The columns to order the results by. This parameter is optional.
+
+Example: revenue DESC, 'ptpp ASC, etc.
+
+dateFilter
+
+The year, month, or date for filtering the data. This parameter is optional
+
+Allowed Values: yearyyyy, monthyyyymm.
+
+Example: year: 2024, "month 202301
+
+A
+
+getEntityByOfficer
+
+getByEntityByOfficer
+
+Retums financial metrics for a legal entity, product, or relationship.
+
+officerName
+
+Officer value provided by user in prompt. This parameter is mandatory
+
+String Format: Last name, Fist name, in case only first or last name is given, provide only that
+
+entity
+
+The column that needs to be filtered. This parameter is mandatory. Allowed Values: legal entity, 'product desc', 'relationship id
+
+info: relationship id is used to filter by SUP.
+
+entityValue
+
+The value of the entity filter. This parameter is mandatory.
+
+select Dimensions
+
+The selection dimensions for the query. This parameter is optional.
+
+String Format: column name delimited by pipe (B.
+
+Allowed values: legal entity', 'product desc, sub lob', 'booking officer', 'lob, mis date skey, llegal entity/product, desc
+
+Segal entityfproduct deschub Job
+
+periodAggregation Type
+
+The aggregation period for the data. This parameter is optional Allowed Values: LTM, YTD, QTD, MID, PYLTM, PYYTD, PYOTO
+
+Default Value: LTM.
+
+orderBy
+
+The columns to order the results by. This parameter is optional
+
+Example: revenue DESC", 'ptpp ASC, etc.
+
+dateFilter
+
+The year, month, or date for filtering the data. This parameter is optional Allowed Values, yesryyyy, monthyyyymm.
+
+Example year 2024, month 202301
+
+getRanked Entity
+
+getRanked Entity
+
+Retums financial metrics and provides ability to sort the column as top or bottom.
+
+entity
+
+Column that needs to be ranked. This parameter is mandatory.
+
+Allowed Values: 'legal entity, 'product desc
+
+rankType
+
+Rank type: accepts the sorting order. Ascending means bottom, Descending means top. This parameter is optional.
+
+Allowed Values: 'top', 'bottom'
+
+Default Value Top
+
+numberOfRecords
+
+Number of records to fetch. This parameters optional
+
+Allowed Values: 0 to 20
+
+Default Value: 10
+
+Parameter DataTypes Integer
+
+rankMetric
+
+Metric/column on which ranking is needed. This parameter is optional
+
+Allowed Values 'ptpp, revenue, 'sva, toe, blended equity, 'revenueline, revenuejptpp revenuessa toive, ptppator
+
+String Format: column name delimited by pipe (
+
+Default Value ptpp
+
+period AggregationType
+
+Aggregation Penod. This parameter is optional
+
+Allowed Values: LTM, YTD, QTD, MID, PYLIM, PYYTO, PYQTD
+
+Default Value LTM
+
+periodAggregation Type
+
+Aggregation Period. This parameter is optional.
+
+Allowed Values: LTM, YTD', 'QTD, MTD, PYLIM, PYYTΟ, ΡΥΩΤΟ
+
+Default Value: LTM
+
+dateFilter
+
+Year or month of filtering. This parameter is optional. Allowed Values yearyyyy, 'monthyyyymm
+
+Example: year 2024 or month: 202301
+
+コー
+
+getRanked EntityByOfficer
+
+getRanked EntityByOfficer
+
+Returns financial metrics for a given officer and provides ability to sort the column as top or bottom.
+
+officer Name
+
+The name of the officer used to filter results.
+
+entity
+
+Column that needs to be ranked. This parameter is mandatory.
+
+Allowed Values: legal entity, product desc
+
+rankType
+
+Rank type: accepts the sorting order. Ascending means bottom, Descending means top. This parameter is optional
+
+Allowed Values: top, bottom
+
+Default Value top
+
+numberOfRecords
+
+Number of records to letch. This parameter is optional.
+
+Allowed Values: 0 to 20
+
+Parameter DataType Integer
+
+Default Value: 10
+
+rankMetric
+
+Metric/column on which ranking is needed. This parameter is optional
+
+String Format: column name delimited by pipe ().
+
+Allowed Values 'ptpp', 'revenue', 'wa', 'toe', 'blended, equity, revenuejice, revenuelptpp, revenuelsva, Yoejsva, ptpipisaloe etc
+
+Default Value: ptpp
+
+periodAggregationType
+
+Aggregation Period. This parameter is optional
+
+Allowed Values LTM, YTO, QTO, MTD, PYLIM, PYYTO, PYQTO
+
+Default Value: TM
+
+dateFilter
+
+Wear or month of filtering. This parameter is optional.
+
+Allowed Values: yearyyyy', 'monthyyyymm
+
+Example: year2024 of month 202301
+
+getDimension Mapping
+
+getDimensionMapping
+
+Retums related columns to the given columns filter. This method retrieves mappings or relationships for a specified dimension based on the provided filters
+
+
+
+```
